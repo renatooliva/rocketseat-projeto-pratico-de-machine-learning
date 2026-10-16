@@ -1,0 +1,80 @@
+## Célula 3
+      Renda  Investimentos  Score_Credito  Gasto_Mensal_Cartao   Dividas
+0   3530.80         882.43            210               451.73  17089.75
+1   6087.50        6989.56            482              1569.73   6537.04
+2   3249.91        6300.54            585               468.87   1169.29
+3   3709.71       12161.10            661               442.77   1433.53
+4  11635.89        8030.33            351              1457.27  39111.05
+              Renda  Investimentos  Score_Credito  Gasto_Mensal_Cartao  \
+count   2000.000000    2000.000000    2000.000000          2000.000000   
+mean    7607.712285   43115.564090     577.743000          1638.345210   
+std     2912.175650   63476.727346     256.468402           986.718718   
+min     1100.000000      68.980000       0.000000           136.740000   
+25%     5403.947500    5338.372500     371.000000           932.612500   
+50%     7508.235000   16283.300000     578.500000          1380.035000   
+75%     9647.935000   55160.980000     783.000000          2091.642500   
+max    17429.410000  747759.240000    1000.000000          6148.340000   
+
+            Dividas  
+count   2000.000000  
+mean   11977.963435  
+std    12783.020918  
+min      457.320000  
+25%     3305.862500  
+50%     6690.870000  
+75%    16129.487500  
+max    89608.390000  
+
+## Célula 8
+Melhor k: 4
+silhouette_score: 0.393
+    k  silhouette
+0   2    0.324826
+1   3    0.347909
+2   4    0.392712
+3   5    0.377643
+4   6    0.375486
+5   7    0.377223
+6   8    0.371616
+7   9    0.346701
+8  10    0.350071
+
+## Célula 9
+['modelo_segmentacao.pkl']
+
+## Célula 11
+           Renda  Investimentos  Score_Credito  Gasto_Mensal_Cartao   Dividas  \
+cluster                                                                         
+0        5131.62       19837.51         556.04              1035.34   5527.13   
+1        9848.50      131910.61         905.54              1835.83   4951.61   
+2        9096.21        5838.27         262.29              1375.74  34085.88   
+3        9467.80       18109.73         511.71              3345.66  14996.89   
+
+         contagem  percentual         nome  
+cluster                                     
+0             868       43.40  Conservador  
+1             465       23.25      Premium  
+2             359       17.95        Risco  
+3             308       15.40   Alto gasto  
+
+## Célula 16
+Melhor k: 4. silhouette_score: 0.393.
+Perfil de cada cluster:
+           Renda  Investimentos  Score_Credito  Gasto_Mensal_Cartao   Dividas  \
+cluster                                                                         
+0        5131.62       19837.51         556.04              1035.34   5527.13   
+1        9848.50      131910.61         905.54              1835.83   4951.61   
+2        9096.21        5838.27         262.29              1375.74  34085.88   
+3        9467.80       18109.73         511.71              3345.66  14996.89   
+
+         contagem  percentual         nome  
+cluster                                     
+0             868       43.40  Conservador  
+1             465       23.25      Premium  
+2             359       17.95        Risco  
+3             308       15.40   Alto gasto  
+Conservador (cluster 0): 868 clientes (43.4%). Renda média R$ 5,132, investimentos R$ 19,838, score 556, gasto no cartão R$ 1,035, dívidas R$ 5,527.
+Premium (cluster 1): 465 clientes (23.2%). Renda média R$ 9,849, investimentos R$ 131,911, score 906, gasto no cartão R$ 1,836, dívidas R$ 4,952.
+Risco (cluster 2): 359 clientes (17.9%). Renda média R$ 9,096, investimentos R$ 5,838, score 262, gasto no cartão R$ 1,376, dívidas R$ 34,086.
+Alto gasto (cluster 3): 308 clientes (15.4%). Renda média R$ 9,468, investimentos R$ 18,110, score 512, gasto no cartão R$ 3,346, dívidas R$ 14,997.
+

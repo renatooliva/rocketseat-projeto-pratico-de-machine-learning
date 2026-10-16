@@ -1,0 +1,94 @@
+## Célula 3
+<class 'pandas.DataFrame'>
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 13 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   ID_Cliente           2000 non-null   int64  
+ 1   Nome                 2000 non-null   str    
+ 2   Idade                2000 non-null   int64  
+ 3   Escolaridade         2000 non-null   str    
+ 4   Tempo_Emprego        2000 non-null   int64  
+ 5   Estado_Civil         2000 non-null   str    
+ 6   Dependentes          2000 non-null   int64  
+ 7   Score_Credito        2000 non-null   int64  
+ 8   Gasto_Mensal_Cartao  2000 non-null   float64
+ 9   Investimentos        2000 non-null   float64
+ 10  Dividas              2000 non-null   float64
+ 11  Renda                2000 non-null   float64
+ 12  Categoria_Cliente    2000 non-null   str    
+dtypes: float64(4), int64(5), str(4)
+memory usage: 203.3 KB
+   ID_Cliente                     Nome  Idade Escolaridade  Tempo_Emprego  \
+0           1     Bruno Ferreira Gomes     22  Fundamental              1   
+1           2    Bruno Barbosa Cardoso     59        Médio              5   
+2           3    Beatriz Correia Souza     52  Fundamental             10   
+3           4     Mariana Lopes Vieira     41  Fundamental              7   
+4           5  Fernanda Fernandes Lima     40     Superior             12   
+
+  Estado_Civil  Dependentes  Score_Credito  Gasto_Mensal_Cartao  \
+0   Divorciado            1            210               451.73   
+1       Casado            2            482              1569.73   
+2       Casado            1            585               468.87   
+3     Solteiro            2            661               442.77   
+4       Casado            2            351              1457.27   
+
+   Investimentos   Dividas     Renda Categoria_Cliente  
+0         882.43  17089.75   3530.80            Bronze  
+1        6989.56   6537.04   6087.50             Prata  
+2        6300.54   1169.29   3249.91             Prata  
+3       12161.10   1433.53   3709.71             Prata  
+4        8030.33  39111.05  11635.89            Bronze  
+Categoria_Cliente
+Bronze      680
+Prata       600
+Ouro        440
+Platinum    280
+Name: count, dtype: int64
+
+## Célula 6
+ANOVA Idade: F=49.73  p=5.448e-31
+ANOVA Tempo_Emprego: F=42.91  p=7.23e-27
+ANOVA Dependentes: F=0.01  p=0.9984
+ANOVA Score_Credito: F=2686.43  p=0
+ANOVA Gasto_Mensal_Cartao: F=89.53  p=2.348e-54
+ANOVA Investimentos: F=1327.77  p=0
+ANOVA Dividas: F=337.37  p=3.451e-177
+ANOVA Renda: F=110.25  p=4.736e-66
+
+Qui-quadrado Escolaridade: chi2=118.39  gl=9  p=2.859e-21
+Qui-quadrado Estado_Civil: chi2=6.11  gl=9  p=0.7284
+
+## Célula 8
+F1 macro do baseline na validação cruzada: 0.8119
+F1 macro do modelo tunado na validação cruzada: 0.8121
+Melhores parâmetros: {'floresta__max_depth': None, 'floresta__n_estimators': 200}
+
+## Célula 10
+              precision    recall  f1-score   support
+
+      Bronze      0.947     0.926     0.937       136
+        Ouro      0.667     0.659     0.663        88
+    Platinum      0.816     0.714     0.762        56
+       Prata      0.763     0.833     0.797       120
+
+    accuracy                          0.810       400
+   macro avg      0.798     0.783     0.790       400
+weighted avg      0.812     0.810     0.810       400
+
+f1_macro no teste: 0.790
+f1_macro do baseline no teste: 0.797
+
+## Célula 13
+['modelo_categoria.pkl']
+
+## Célula 15
+O baseline teve f1_macro de 0.8119 na validação cruzada e 0.797 no teste. O modelo tunado teve 0.8121 na validação cruzada e f1_macro de 0.790 no teste. A busca escolhe pelo resultado da validação cruzada. No teste, o baseline ficou levemente acima, e a diferença é pequena. O arquivo salvo é o modelo escolhido na validação.
+Melhor classe no teste: Bronze (F1=0.937). Pior classe no teste: Ouro (F1=0.663).
+F1 por classe:
+             f1
+Bronze    0.937
+Prata     0.797
+Ouro      0.663
+Platinum  0.762
+

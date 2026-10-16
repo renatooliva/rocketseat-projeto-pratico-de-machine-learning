@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Material local. Nao entra na entrega do desafio.
+.idea/
+aulas/
+Materiais-machine-learning-e-inteligencia-artificial-aplicada/
+dados-origem/
+dados-melhorados/
+
+# Modelos gerados na execucao dos notebooks.
+modelo_*.pkl

@@ -1,0 +1,118 @@
+## Célula 3
+<class 'pandas.DataFrame'>
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 13 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   ID_Cliente           2000 non-null   int64  
+ 1   Nome                 2000 non-null   str    
+ 2   Idade                2000 non-null   int64  
+ 3   Escolaridade         2000 non-null   str    
+ 4   Tempo_Emprego        2000 non-null   int64  
+ 5   Estado_Civil         2000 non-null   str    
+ 6   Dependentes          2000 non-null   int64  
+ 7   Score_Credito        2000 non-null   int64  
+ 8   Gasto_Mensal_Cartao  2000 non-null   float64
+ 9   Investimentos        2000 non-null   float64
+ 10  Dividas              2000 non-null   float64
+ 11  Renda                2000 non-null   float64
+ 12  Categoria_Cliente    2000 non-null   str    
+dtypes: float64(4), int64(5), str(4)
+memory usage: 203.3 KB
+   ID_Cliente                     Nome  Idade Escolaridade  Tempo_Emprego  \
+0           1     Bruno Ferreira Gomes     22  Fundamental              1   
+1           2    Bruno Barbosa Cardoso     59        Médio              5   
+2           3    Beatriz Correia Souza     52  Fundamental             10   
+3           4     Mariana Lopes Vieira     41  Fundamental              7   
+4           5  Fernanda Fernandes Lima     40     Superior             12   
+
+  Estado_Civil  Dependentes  Score_Credito  Gasto_Mensal_Cartao  \
+0   Divorciado            1            210               451.73   
+1       Casado            2            482              1569.73   
+2       Casado            1            585               468.87   
+3     Solteiro            2            661               442.77   
+4       Casado            2            351              1457.27   
+
+   Investimentos   Dividas     Renda Categoria_Cliente  
+0         882.43  17089.75   3530.80            Bronze  
+1        6989.56   6537.04   6087.50             Prata  
+2        6300.54   1169.29   3249.91             Prata  
+3       12161.10   1433.53   3709.71             Prata  
+4        8030.33  39111.05  11635.89            Bronze  
+        ID_Cliente        Idade  Tempo_Emprego  Dependentes  Score_Credito  \
+count  2000.000000  2000.000000    2000.000000  2000.000000    2000.000000   
+mean   1000.500000    43.988000       9.298000     1.125000     577.743000   
+std     577.494589    15.373029       7.708236     1.054007     256.468402   
+min       1.000000    18.000000       0.000000     0.000000       0.000000   
+25%     500.750000    31.000000       3.000000     0.000000     371.000000   
+50%    1000.500000    44.000000       8.000000     1.000000     578.500000   
+75%    1500.250000    57.000000      14.000000     2.000000     783.000000   
+max    2000.000000    70.000000      36.000000     5.000000    1000.000000   
+
+       Gasto_Mensal_Cartao  Investimentos       Dividas         Renda  
+count          2000.000000    2000.000000   2000.000000   2000.000000  
+mean           1638.345210   43115.564090  11977.963435   7607.712285  
+std             986.718718   63476.727346  12783.020918   2912.175650  
+min             136.740000      68.980000    457.320000   1100.000000  
+25%             932.612500    5338.372500   3305.862500   5403.947500  
+50%            1380.035000   16283.300000   6690.870000   7508.235000  
+75%            2091.642500   55160.980000  16129.487500   9647.935000  
+max            6148.340000  747759.240000  89608.390000  17429.410000  
+
+## Célula 7
+Escolaridade: F=421.38  p=4.986e-212
+Estado_Civil: F=8.45  p=1.409e-05
+Categoria_Cliente: F=110.25  p=4.736e-66
+
+## Célula 9
+Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('numericas', StandardScaler(),
+                                                  ['Idade', 'Tempo_Emprego',
+                                                   'Dependentes',
+                                                   'Score_Credito',
+                                                   'Gasto_Mensal_Cartao',
+                                                   'Investimentos',
+                                                   'Dividas']),
+                                                 ('categoricas',
+                                                  OneHotEncoder(drop='first'),
+                                                  ['Escolaridade',
+                                                   'Estado_Civil'])])),
+                ('regressao', LinearRegression())])
+
+## Célula 11
+RMSE: 995.63
+MAE: 808.95
+R²: 0.873
+R² médio (5 folds): 0.872
+
+## Célula 13
+                    feature  coeficiente    magnitude
+0          Escolaridade_Pós  3280.711991  3280.711991
+1     Escolaridade_Superior  1704.224111  1704.224111
+2                   Dividas   938.082951   938.082951
+3             Tempo_Emprego   797.377461   797.377461
+4             Score_Credito   735.314566   735.314566
+5                     Idade   677.418320   677.418320
+6        Escolaridade_Médio   573.550961   573.550961
+7     Estado_Civil_Solteiro  -568.900422   568.900422
+8       Gasto_Mensal_Cartao   429.231519   429.231519
+9   Estado_Civil_Divorciado  -406.389804   406.389804
+10       Estado_Civil_Viúvo  -223.407015   223.407015
+11            Investimentos   168.805670   168.805670
+12              Dependentes  -116.813677   116.813677
+
+## Célula 14
+['modelo_renda.pkl']
+
+## Célula 16
+Referências do one-hot: Escolaridade=Fundamental, Estado_Civil=Casado
+No teste, o R² foi 0.873, o RMSE foi R$ 995.63 e o MAE foi R$ 808.95. A renda média do teste é R$ 7,654.46, então o MAE corresponde a 10.6% desse valor. A validação cruzada de 5 folds no treino teve R² médio de 0.872.
+A média dos resíduos no teste foi R$ -4.82. O gráfico de real contra predito e o histograma dos resíduos mostram esse erro em torno de zero.
+Maiores magnitudes:
+                 feature  coeficiente    magnitude
+0       Escolaridade_Pós  3280.711991  3280.711991
+1  Escolaridade_Superior  1704.224111  1704.224111
+2                Dividas   938.082951   938.082951
+3          Tempo_Emprego   797.377461   797.377461
+4          Score_Credito   735.314566   735.314566
+
