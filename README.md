@@ -4,7 +4,23 @@
   <a href="https://anchieta.br/pos-graduacao-ead/machine-learning/"><img alt="Pós Graduação em Machine Learning · UniAnchieta e Faculdade de Tecnologia Rocketseat" src="https://img.shields.io/badge/P%C3%B3s%20Gradua%C3%A7%C3%A3o%20em%20Machine%20Learning-UniAnchieta%20%2B%20Rocketseat-8257E5?style=for-the-badge"></a>
 </p>
 
-Desafio prático da [Pós Graduação em Machine Learning](https://anchieta.br/pos-graduacao-ead/machine-learning/), do [UniAnchieta](https://anchieta.br/) com a [Faculdade de Tecnologia Rocketseat](https://www.rocketseat.com.br/faculdade). A trilha percorre estatística, análise exploratória, aprendizado de máquina, algoritmos supervisionados, clusterização e ensemble. Este repositório junta esse percurso em três sistemas para uma instituição financeira fictícia, sobre a mesma base de 2.000 clientes.
+Três modelos para 2.000 clientes de uma instituição financeira fictícia.
+A renda usa regressão linear, a categoria uma floresta aleatória e a segmentação K-Means.
+A base é fictícia: as métricas medem este exercício, não um sistema em produção.
+
+| Renda | Categoria | Segmentação |
+|---|---|---|
+| **R² 0,873** | **f1_macro 0,790** | **silhouette 0,393** |
+| RMSE R$ 995,63 · MAE R$ 808,95 | 4 classes, split estratificado | k = 4 · Premium, Risco, Alto gasto, Conservador |
+
+<p align="center">
+  <img src="resultados/desafio_3_segmentacao/figuras/pca.png" alt="Quatro segmentos de clientes no plano do PCA" width="720">
+</p>
+<p align="center"><sub>Segmentos no plano do PCA. O gráfico é só leitura: o modelo salvo é o K-Means nas cinco variáveis financeiras.</sub></p>
+
+## O projeto
+
+Desafio prático da [Pós Graduação em Machine Learning](https://anchieta.br/pos-graduacao-ead/machine-learning/), do [UniAnchieta](https://anchieta.br/) com a [Faculdade de Tecnologia Rocketseat](https://www.rocketseat.com.br/faculdade). A trilha percorre estatística, análise exploratória, aprendizado de máquina, algoritmos supervisionados, clusterização e ensemble. Este repositório junta esse percurso nas três perguntas da tabela abaixo.
 
 | Sistema | Pergunta de negócio | Tipo | Notebook | Modelo salvo |
 |---|---|---|---|---|
