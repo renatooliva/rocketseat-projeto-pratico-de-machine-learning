@@ -1,0 +1,14 @@
+{
+  "title": "Inteligência de negócios com Machine Learning: predição de renda, classificação de categoria e segmentação de clientes",
+  "upload_type": "software",
+  "description": "Desafio prático da Pós-Graduação em Machine Learning e Inteligência Artificial Aplicada. Regressão linear para predição de renda, Random Forest para classificação de categoria de clientes e K-Means com Optuna para segmentação, sobre base fictícia de 2.000 clientes.",
+  "creators": [
+    {
+      "name": "Oliva Junior, Renato",
+      "orcid": "0009-0000-5738-5608"
+    }
+  ],
+  "keywords": ["Machine Learning", "Random Forest", "K-Means", "Regressão Linear", "Segmentação de Clientes", "Python"],
+  "license": "MIT",
+  "language": "por"
+}
