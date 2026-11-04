@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23935968.svg)](https://doi.org/10.5281/zenodo.23935968)
+
 # Desafio prático: Inteligência de Negócios com Machine Learning
 
 <p align="center">
