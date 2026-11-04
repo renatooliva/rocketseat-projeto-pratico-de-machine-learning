@@ -9,6 +9,6 @@
     }
   ],
   "keywords": ["Machine Learning", "Random Forest", "K-Means", "Regressão Linear", "Segmentação de Clientes", "Python"],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "language": "por"
 }
